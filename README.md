@@ -31,11 +31,10 @@ psql -U postgres -d ead_php_alura_mvc
 # \dt                   lista tables da database
 # \d <tablename>        descreve uma tabela
 ```
-4. Crie as tabelas que as entidades refletem
+4. Renomeie `.env.example` para `.env`
+5. Crie as tabelas que as entidades refletem
 ```sh
 composer doctrine orm:schema-tool:create
-# ou
-composer doctrine:migrations migrations:migrate 
 ```
 
 ## Servidor

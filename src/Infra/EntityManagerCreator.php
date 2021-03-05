@@ -13,15 +13,48 @@ class EntityManagerCreator
         $paths = [__DIR__ . '/../Entity'];
         $isDevMode = false;
 
-        $dbParams = array(
-            'driver' => 'pdo_sqlite',
-            'path' => __DIR__ . '/../../db.sqlite'
-        );
+        $connection = $this->conectaDeAcordoComENV();
+        $connection['application_name'] = 'ead_php_alura_doctrine';
 
         $config = Setup::createAnnotationMetadataConfiguration(
             $paths,
             $isDevMode
         );
-        return EntityManager::create($dbParams, $config);
+        return EntityManager::create($connection, $config);
+    }
+
+    private function conectaDeAcordoComENV(): array
+    {
+        try {
+            [
+                'driver' => $driver,
+                'user' => $user,
+                'password' => $password,
+                'host' => $host,
+                'dbname' => $dbname,
+            ] = $_ENV;
+
+            $drivers = [
+                'psql' => 'pdo_pgsql'
+            ];
+
+            return [
+                'driver' => $drivers[$driver],
+                'user' => $user,
+                'password' => $password,
+                'host' => $host,
+                // 'port' => '',
+                'dbname' => $dbname,
+                // 'charset' => '',
+                // 'default_dbname' => '',
+                // 'sslmode' => '',
+                // 'sslrootcert' => '',
+                // 'sslcert' => '',
+                // 'sslkey' => '',
+                // 'sslcrl' => '',
+            ];
+        } catch (\Throwable $t){
+            throw new \Exception("Erro no parce de ENV");
+        }
     }
 }
