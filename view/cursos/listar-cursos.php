@@ -3,7 +3,6 @@
     <a href="/novo-curso" class="btn btn-primary mb-2">
         Novo Curso
     </a>
-    </div>
     <ul class="list-group">
         <?php foreach ($cursos as $curso): ?>
             <li class="list-group-item">
