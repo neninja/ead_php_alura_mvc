@@ -17,7 +17,7 @@ $cursos = $repositorioDeCursos->findAll();
     <div class="jumbotron">
         <h1>Listar cursos</h1>
     </div>
-    <a href="formulario-novo-curso.php">
+    <a href="/novo-curso">
         Novo curso
     </a>
     <ul class="list-group">
