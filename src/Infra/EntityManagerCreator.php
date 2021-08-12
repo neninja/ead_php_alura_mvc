@@ -54,7 +54,7 @@ class EntityManagerCreator
                 // 'sslcrl' => '',
             ];
         } catch (\Throwable $t){
-            throw new \Exception("Erro no parce de ENV");
+            throw new \Exception("Erro no parse de ENV");
         }
     }
 }

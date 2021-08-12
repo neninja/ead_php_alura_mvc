@@ -15,7 +15,11 @@ php -r "var_dump([
 # caso precise habilitar alguma, edite seu php.ini que se encontra em:
 # php --ini
 ```
-2. Instale as dependências: ``composer i``
+2. Instale as dependências:
+```sh
+composer i
+```
+
 3. Crie o banco de dados
 ```sh
 createdb -U postgres ead_php_alura_mvc
@@ -31,7 +35,11 @@ psql -U postgres -d ead_php_alura_mvc
 # \dt                   lista tables da database
 # \d <tablename>        descreve uma tabela
 ```
-4. Renomeie `.env.example` para `.env`
+4. Duplique `.env.example` para `.env` 
+```sh
+cp .env.example .env
+```
+
 5. Crie as tabelas que as entidades refletem
 ```sh
 composer doctrine orm:schema-tool:create
