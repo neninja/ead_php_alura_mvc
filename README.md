@@ -50,3 +50,5 @@ composer doctrine orm:schema-tool:create
 ```sh
 php -S localhost:8080 -t public
 ```
+
+> Caso ocorra erro de Proxy do doctrine execute `composer doctrine orm:generate-proxies`
